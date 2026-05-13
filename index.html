@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Page title and basic SEO -->
+  <title>The Wedding of Siska &amp; Dimas</title>
+  <meta name="description" content="Undangan pernikahan online untuk Siska Amelia dan Dimas Aldiansyah pada 30 Mei 2026. Datang dan berikan doa restu.">
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <!-- External fonts (fallback to system fonts if not available) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loading / Welcome screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <img src="assets/images/cover.jpg" alt="Foto pembuka pengantin" class="loading-photo" />
+      <h2 class="loading-text">The Wedding of</h2>
+      <h1 class="loading-names">Siska &amp; Dimas</h1>
+      <button id="open-invitation" class="btn-primary">Buka Undangan</button>
+    </div>
+  </div>
+
+  <!-- Background music (muted until invitation opened) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/audio/background-music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+
+  <!-- Floating music control -->
+  <button id="music-toggle" class="music-toggle" title="Play/Pause Musik">🎵</button>
+
+  <!-- Floating WhatsApp button -->
+  <a href="#" id="whatsapp-float" class="floating-btn" title="Hubungi via WhatsApp">
+    <span>💬</span>
+  </a>
+
+  <!-- Chat assistant bot -->
+  <div id="chat-bot" class="chat-bot">
+    <button id="chat-toggle" class="chat-toggle">🗨</button>
+    <div id="chat-window" class="chat-window">
+      <div class="chat-header">
+        <h4>Bantuan</h4>
+        <button id="chat-close" class="chat-close">×</button>
+      </div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Tulis pertanyaan..." />
+        <button id="chat-send">Kirim</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content hidden until invitation opened -->
+  <div id="main-content" class="hidden">
+    <!-- Hero section -->
+    <section id="hero" class="hero">
+      <div class="container text-center">
+        <p class="pretitle">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+        <h1 class="hero-title">Siska &amp; Dimas</h1>
+        <p class="date">30 Mei 2026</p>
+        <p class="intro">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra-putri kami.</p>
+        <div id="countdown" class="countdown"></div>
+      </div>
+    </section>
+
+    <!-- Couple profiles -->
+    <section id="couple" class="section couple">
+      <div class="container couples">
+        <div class="couple-card">
+          <img src="assets/images/profil-siska.jpg" alt="Siska Amelia" />
+          <h3>Siska Amelia</h3>
+          <p>Putri kedua dari Bpk. Wahab &amp; Ibu Entin Kartika</p>
+        </div>
+        <div class="couple-card">
+          <img src="assets/images/profil-dimas.jpg" alt="Dimas Aldiansyah" />
+          <h3>Dimas Aldiansyah</h3>
+          <p>Putra kedua dari Alm. Bpk. Wahab &amp; Ibu Neneng Rohayati</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Details -->
+    <section id="events" class="section events">
+      <div class="container">
+        <h2>Detail Acara</h2>
+        <div class="event-cards">
+          <div class="event-card">
+            <h3>Akad Nikah</h3>
+            <p><strong>Hari/Tanggal:</strong> Sabtu, 30 Mei 2026</p>
+            <p><strong>Waktu:</strong> 08.00 WIB s/d selesai</p>
+            <p><strong>Tempat:</strong> Ds. Pangrumasan, Kp. Bojongsari</p>
+          </div>
+          <div class="event-card">
+            <h3>Resepsi</h3>
+            <p><strong>Hari/Tanggal:</strong> Sabtu, 30 Mei 2026</p>
+            <p><strong>Waktu:</strong> 09.00 WIB s/d selesai</p>
+            <p><strong>Tempat:</strong> Ds. Pangrumasan, Kp. Bojongsari</p>
+          </div>
+        </div>
+        <div class="map-button">
+          <a href="https://maps.app.goo.gl/hRDqyxbHkKn1B6dF6" target="_blank" class="btn-primary">Buka Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <h2>Galeri</h2>
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- Love Story / Timeline -->
+    <section id="love-story" class="section love-story">
+      <div class="container">
+        <h2>Love Story</h2>
+        <ul id="story-list" class="story-list"></ul>
+      </div>
+    </section>
+
+    <!-- Doa &amp; Ucapan -->
+    <section id="prayer" class="section prayer">
+      <div class="container text-center">
+        <h2>Doa Pernikahan</h2>
+        <blockquote>
+          <p>Semoga Allah menghimpun yang terserak dari keduanya, memberkahi mereka berdua, dan kiranya Allah meningkatkan kualitas keturunan mereka, menjadikannya pembuka pintu rahmat, sumber ilmu dan hikmah, serta pemberi rasa aman bagi umat.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- RSVP / Guestbook -->
+    <section id="rsvp" class="section rsvp">
+      <div class="container">
+        <h2>RSVP &amp; Buku Tamu</h2>
+        <form id="rsvp-form" class="rsvp-form">
+          <div class="form-group">
+            <label for="guest-name">Nama</label>
+            <input type="text" id="guest-name" required />
+          </div>
+          <div class="form-group">
+            <label for="guest-message">Ucapan / Doa</label>
+            <textarea id="guest-message" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="guest-count">Jumlah Kehadiran</label>
+            <input type="number" id="guest-count" min="1" max="10" value="1" required />
+          </div>
+          <div class="form-group">
+            <label>Status Kehadiran</label>
+            <select id="guest-status" required>
+              <option value="hadir">Hadir</option>
+              <option value="tidak">Tidak Hadir</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Kirim Konfirmasi</button>
+        </form>
+        <div id="guestbook" class="guestbook">
+          <h3>Daftar Ucapan</h3>
+          <ul id="guestbook-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Envelope -->
+    <section id="amplop" class="section amplop">
+      <div class="container text-center">
+        <h2>Amplop Digital</h2>
+        <p>Silakan kirim hadiah melalui DANA ke nomor berikut:</p>
+        <div class="dana-number">
+          <span id="dana-number">085314300851</span>
+          <button id="copy-dana" class="btn-secondary">Copy</button>
+        </div>
+        <div class="amplop-actions">
+          <a href="https://wa.me/6285314300851?text=Konfirmasi%20pengiriman%20amplop%20digital%20untuk%20pernikahan%20Siska%20%26%20Dimas" target="_blank" class="btn-primary">Konfirmasi via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Invitation -->
+    <section id="share" class="section share">
+      <div class="container text-center">
+        <h2>Bagikan Undangan</h2>
+        <button id="share-whatsapp" class="btn-primary">Share via WhatsApp</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container text-center">
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu. Atas kehadiran dan doanya kami ucapkan terima kasih.</p>
+        <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh.</p>
+        <p class="turut-mengundang">Turut Mengundang: Ustad Usman, Ustad Dasep, Keluarga Besar Pondok Pesantren Nurul Huda (Pulo)</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
